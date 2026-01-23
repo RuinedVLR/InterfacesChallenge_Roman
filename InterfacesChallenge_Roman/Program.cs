@@ -8,8 +8,12 @@ namespace InterfacesChallenge_Roman
 {
     internal class Program
     {
+        public static Player player = new Player(xPos: 0, yPos: 0, color: ConsoleColor.Blue);
+        
         static void Main(string[] args)
         {
+
+
         }
     }
 }
