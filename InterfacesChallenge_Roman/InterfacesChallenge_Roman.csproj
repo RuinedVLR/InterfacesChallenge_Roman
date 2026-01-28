@@ -43,11 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgressiveMoveStrategy.cs" />
     <Compile Include="Enemy.cs" />
+    <Compile Include="IMoveStrategy.cs" />
+    <Compile Include="PassiveMoveStrategy.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RandomMoveStrategy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

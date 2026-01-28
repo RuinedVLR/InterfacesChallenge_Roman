@@ -8,13 +8,12 @@ namespace InterfacesChallenge_Roman
 {
     internal class Player
     {
-        Position _position;
-        ConsoleColor _color;
+        public Position _position;
+        public ConsoleColor _color;
 
         public Player(int xPos, int yPos, ConsoleColor color)
         {
-            _position._xPos = xPos;
-            _position._yPos = yPos;
+            _position = new Position { _xPos = xPos, _yPos = yPos };
             _color = color;
         }
 

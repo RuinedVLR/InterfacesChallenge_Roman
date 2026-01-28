@@ -8,57 +8,38 @@ namespace InterfacesChallenge_Roman
 {
     internal class Enemy
     {
-        Position _position;
-        ConsoleColor _color;
+        public Position _position;
+        public ConsoleColor _color;
 
-        enum MovementState
+        AgressiveMoveStrategy _aggressiveMoveStrategy = new AgressiveMoveStrategy();
+        PassiveMoveStrategy _passiveMoveStrategy = new PassiveMoveStrategy();
+        RandomMoveStrategy _randomMoveStrategy = new RandomMoveStrategy();
+
+        IMoveStrategy _moveStrategy;
+
+        public IMoveStrategy CurrentMoveStrategy => _moveStrategy;
+
+        public void ChangeStrategy(ConsoleKeyInfo keyInfo)
         {
-            aggressive,
-            passive,
-            random
-        };
-
-        MovementState _movementState;
-
-        public void Move()
-        {
-            if(_movementState == MovementState.aggressive)
-            {
-                // Move towards player
-            }
-            else if(_movementState == MovementState.passive)
-            {
-                // Stay still
-            }
-            else if(_movementState == MovementState.random)
-            {
-                // Move randomly
-            }
-        }
-
-        public void ChangeState()
-        {
-            ConsoleKeyInfo keyInfo = Console.ReadKey(true);
-
             if (keyInfo.Key == ConsoleKey.I)
             {
-                _movementState = MovementState.aggressive;
+                _moveStrategy = _aggressiveMoveStrategy;
             }
             else if (keyInfo.Key == ConsoleKey.O)
             {
-                _movementState = MovementState.passive;
+                _moveStrategy = _passiveMoveStrategy;
             }
             else if (keyInfo.Key == ConsoleKey.P)
             {
-                _movementState = MovementState.random;
+                _moveStrategy = _randomMoveStrategy;
             }
         }
 
         public Enemy(int xPos, int yPos, ConsoleColor color)
         {
-            _position._xPos = xPos;
-            _position._yPos = yPos;
+            _position = new Position { _xPos = xPos, _yPos = yPos };
             _color = color;
+            _moveStrategy = _randomMoveStrategy; //default strategy
         }
 
 
